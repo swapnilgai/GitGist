@@ -1,8 +1,10 @@
 package com.java.gitgist.di.component;
 
 import com.java.gitgist.di.module.DataManagerModule;
+import com.java.gitgist.di.module.DetailViewModelModule;
 import com.java.gitgist.di.module.NetModule;
 import com.java.gitgist.feature.detail.DetailActivity;
+import com.java.gitgist.feature.detail.DetailViewModel;
 import com.java.gitgist.feature.home.MainActivity;
 
 import javax.inject.Singleton;
@@ -14,7 +16,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = {DataManagerModule.class, NetModule.class})
+@Component(modules = {DetailViewModelModule.class})
 public interface DetailComponent {
     void inject(DetailActivity detailActivity);
 }

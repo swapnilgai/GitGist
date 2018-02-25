@@ -16,7 +16,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = {DataManagerModule.class, NetModule.class, HomeModule.class, HomeViewModelModule.class, HomeRecyclerAdapterModule.class})
+@Component(modules = {HomeViewModelModule.class, HomeRecyclerAdapterModule.class})
 public interface HomeComponent {
     void inject(MainActivity mainActivity);
 }

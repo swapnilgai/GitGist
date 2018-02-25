@@ -6,23 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Files implements Parcelable {
 
-	@SerializedName("gistfile1.txt")
+	@SerializedName( value="gistfile1.txt", alternate={"config.json", "CoroRP_fiche_RoT.md",
+			"sort_timings.zsh", "get_db3_tbl.py", "index.css", "svg", "MountainousUnsungSecurity.c"})
 	private Gistfile1Txt gistfile1Txt;
-
-	protected Files(Parcel in) {
-	}
-
-	public static final Creator<Files> CREATOR = new Creator<Files>() {
-		@Override
-		public Files createFromParcel(Parcel in) {
-			return new Files(in);
-		}
-
-		@Override
-		public Files[] newArray(int size) {
-			return new Files[size];
-		}
-	};
 
 	public void setGistfile1Txt(Gistfile1Txt gistfile1Txt){
 		this.gistfile1Txt = gistfile1Txt;
@@ -39,5 +25,25 @@ public class Files implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeParcelable(this.gistfile1Txt, flags);
 	}
+
+	public Files() {
+	}
+
+	protected Files(Parcel in) {
+		this.gistfile1Txt = in.readParcelable(Gistfile1Txt.class.getClassLoader());
+	}
+
+	public static final Parcelable.Creator<Files> CREATOR = new Parcelable.Creator<Files>() {
+		@Override
+		public Files createFromParcel(Parcel source) {
+			return new Files(source);
+		}
+
+		@Override
+		public Files[] newArray(int size) {
+			return new Files[size];
+		}
+	};
 }

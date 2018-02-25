@@ -14,6 +14,6 @@ public class HomeItemViewModel extends HomeViewModel {
     }
 
     public void onItemClicked() {
-       // mHomeNavigator.onItemClick(getSuggestionDataItem());
+       mHomeNavigator.onItemClick(getGists());
     }
 }
