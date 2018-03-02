@@ -40,5 +40,4 @@ ext {
     retrofitVersion = '2.3.0'
     daggerVersion = '2.12'
     glideVersion = '3.7.0'
-    butterknifeVersion = '8.5.1'
 }

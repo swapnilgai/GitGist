@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="24dp">
+
+    <TextView
+        android:id="@+id/file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+<android.support.v4.widget.NestedScrollView
+    android:id="@+id/file_description_nested_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/file_name">
+    <TextView
+        android:id="@+id/file_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp" />
+</android.support.v4.widget.NestedScrollView>
+    <Button
+        android:id="@+id/file_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/file_description_nested_view"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

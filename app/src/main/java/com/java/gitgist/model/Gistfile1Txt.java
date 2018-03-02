@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
 
 public class Gistfile1Txt implements Parcelable {
 
@@ -13,6 +14,9 @@ public class Gistfile1Txt implements Parcelable {
 	@SerializedName("size")
 	private int size;
 
+	@SerializedName("truncated")
+	private boolean truncated;
+
 	@SerializedName("language")
 	private String language;
 
@@ -21,6 +25,9 @@ public class Gistfile1Txt implements Parcelable {
 
 	@SerializedName("raw_url")
 	private String rawUrl;
+
+	@SerializedName("content")
+	private String content;
 
 	public void setFilename(String filename){
 		this.filename = filename;
@@ -36,6 +43,14 @@ public class Gistfile1Txt implements Parcelable {
 
 	public int getSize(){
 		return size;
+	}
+
+	public void setTruncated(boolean truncated){
+		this.truncated = truncated;
+	}
+
+	public boolean isTruncated(){
+		return truncated;
 	}
 
 	public void setLanguage(String language){
@@ -62,6 +77,14 @@ public class Gistfile1Txt implements Parcelable {
 		return rawUrl;
 	}
 
+	public void setContent(String content){
+		this.content = content;
+	}
+
+	public String getContent(){
+		return content;
+	}
+
 	@Override
 	public int describeContents() {
 		return 0;
@@ -71,9 +94,11 @@ public class Gistfile1Txt implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeString(this.filename);
 		dest.writeInt(this.size);
+		dest.writeByte(this.truncated ? (byte) 1 : (byte) 0);
 		dest.writeString(this.language);
 		dest.writeString(this.type);
 		dest.writeString(this.rawUrl);
+		dest.writeString(this.content);
 	}
 
 	public Gistfile1Txt() {
@@ -82,9 +107,11 @@ public class Gistfile1Txt implements Parcelable {
 	protected Gistfile1Txt(Parcel in) {
 		this.filename = in.readString();
 		this.size = in.readInt();
+		this.truncated = in.readByte() != 0;
 		this.language = in.readString();
 		this.type = in.readString();
 		this.rawUrl = in.readString();
+		this.content = in.readString();
 	}
 
 	public static final Parcelable.Creator<Gistfile1Txt> CREATOR = new Parcelable.Creator<Gistfile1Txt>() {

@@ -5,4 +5,5 @@ package com.java.gitgist.feature.detail;
  */
 
 public interface DetailNavigator {
+    public void displayFile(String title, String content);
 }

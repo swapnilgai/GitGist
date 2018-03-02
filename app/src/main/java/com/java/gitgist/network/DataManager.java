@@ -1,12 +1,12 @@
 package com.java.gitgist.network;
 
 import com.java.gitgist.model.Gists;
+import com.java.gitgist.model.temp.DetailResponse;
 
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * Created by Swapnil on 2/23/18.
@@ -28,6 +28,10 @@ public class DataManager {
 
     public Call<ResponseBody> getFileFromServer(String fileUrl) {
         return  mApiService.getFileFromServer(fileUrl);
+    }
+
+    public Call<DetailResponse> getGistDetail(String gistId) {
+        return  mApiService.getGistDetail(gistId);
     }
 
 }
