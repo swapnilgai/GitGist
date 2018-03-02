@@ -4,125 +4,117 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
 
 public class Gistfile1Txt implements Parcelable {
 
-	@SerializedName("filename")
-	private String filename;
+    public static final Parcelable.Creator<Gistfile1Txt> CREATOR = new Parcelable.Creator<Gistfile1Txt>() {
+        @Override
+        public Gistfile1Txt createFromParcel(Parcel source) {
+            return new Gistfile1Txt(source);
+        }
 
-	@SerializedName("size")
-	private int size;
+        @Override
+        public Gistfile1Txt[] newArray(int size) {
+            return new Gistfile1Txt[size];
+        }
+    };
+    @SerializedName("filename")
+    private String filename;
+    @SerializedName("size")
+    private int size;
+    @SerializedName("truncated")
+    private boolean truncated;
+    @SerializedName("language")
+    private String language;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("raw_url")
+    private String rawUrl;
+    @SerializedName("content")
+    private String content;
 
-	@SerializedName("truncated")
-	private boolean truncated;
+    public Gistfile1Txt() {
+    }
 
-	@SerializedName("language")
-	private String language;
+    protected Gistfile1Txt(Parcel in) {
+        this.filename = in.readString();
+        this.size = in.readInt();
+        this.truncated = in.readByte() != 0;
+        this.language = in.readString();
+        this.type = in.readString();
+        this.rawUrl = in.readString();
+        this.content = in.readString();
+    }
 
-	@SerializedName("type")
-	private String type;
+    public String getFilename() {
+        return filename;
+    }
 
-	@SerializedName("raw_url")
-	private String rawUrl;
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
 
-	@SerializedName("content")
-	private String content;
+    public int getSize() {
+        return size;
+    }
 
-	public void setFilename(String filename){
-		this.filename = filename;
-	}
+    public void setSize(int size) {
+        this.size = size;
+    }
 
-	public String getFilename(){
-		return filename;
-	}
+    public boolean isTruncated() {
+        return truncated;
+    }
 
-	public void setSize(int size){
-		this.size = size;
-	}
+    public void setTruncated(boolean truncated) {
+        this.truncated = truncated;
+    }
 
-	public int getSize(){
-		return size;
-	}
+    public String getLanguage() {
+        return language;
+    }
 
-	public void setTruncated(boolean truncated){
-		this.truncated = truncated;
-	}
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
-	public boolean isTruncated(){
-		return truncated;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setLanguage(String language){
-		this.language = language;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getLanguage(){
-		return language;
-	}
+    public String getRawUrl() {
+        return rawUrl;
+    }
 
-	public void setType(String type){
-		this.type = type;
-	}
+    public void setRawUrl(String rawUrl) {
+        this.rawUrl = rawUrl;
+    }
 
-	public String getType(){
-		return type;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setRawUrl(String rawUrl){
-		this.rawUrl = rawUrl;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public String getRawUrl(){
-		return rawUrl;
-	}
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-	public void setContent(String content){
-		this.content = content;
-	}
-
-	public String getContent(){
-		return content;
-	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(this.filename);
-		dest.writeInt(this.size);
-		dest.writeByte(this.truncated ? (byte) 1 : (byte) 0);
-		dest.writeString(this.language);
-		dest.writeString(this.type);
-		dest.writeString(this.rawUrl);
-		dest.writeString(this.content);
-	}
-
-	public Gistfile1Txt() {
-	}
-
-	protected Gistfile1Txt(Parcel in) {
-		this.filename = in.readString();
-		this.size = in.readInt();
-		this.truncated = in.readByte() != 0;
-		this.language = in.readString();
-		this.type = in.readString();
-		this.rawUrl = in.readString();
-		this.content = in.readString();
-	}
-
-	public static final Parcelable.Creator<Gistfile1Txt> CREATOR = new Parcelable.Creator<Gistfile1Txt>() {
-		@Override
-		public Gistfile1Txt createFromParcel(Parcel source) {
-			return new Gistfile1Txt(source);
-		}
-
-		@Override
-		public Gistfile1Txt[] newArray(int size) {
-			return new Gistfile1Txt[size];
-		}
-	};
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.filename);
+        dest.writeInt(this.size);
+        dest.writeByte(this.truncated ? (byte) 1 : (byte) 0);
+        dest.writeString(this.language);
+        dest.writeString(this.type);
+        dest.writeString(this.rawUrl);
+        dest.writeString(this.content);
+    }
 }

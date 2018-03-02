@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="DetailDataBinding">
+
         <variable
             name="viewModel"
             type="com.java.gitgist.feature.detail.DetailViewModel" />
@@ -12,11 +13,12 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.home.MainActivity"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginTop="24dp"
+        tools:context=".feature.home.MainActivity">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,37 +29,38 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="100dp" />
 
-           <android.support.constraint.ConstraintLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:onClick="@{() -> viewModel.onClick()}"
-               android:visibility="@{viewModel.hideOrUnHideFile}">
-               <ImageView
-                   android:id="@+id/file_attachment_image"
-                   android:layout_width="40dp"
-                   android:layout_height="40dp"
-                   android:background="@drawable/ic_attach_file" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onClick()}"
+                android:visibility="@{viewModel.hideOrUnHideFile}">
 
-               <TextView
-                   android:id="@+id/file_name"
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:layout_marginLeft="8dp"
-                   app:layout_constraintLeft_toRightOf="@+id/file_attachment_image"
+                <ImageView
+                    android:id="@+id/file_attachment_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_attach_file" />
 
-                   android:gravity="center" />
-           </android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:id="@+id/file_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center"
+
+                    app:layout_constraintLeft_toRightOf="@+id/file_attachment_image" />
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
             android:background="@color/colorOrange"
-            app:imageUrl="@{viewModel.mUserAvatarImage}"/>
+            app:imageUrl="@{viewModel.mUserAvatarImage}"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </layout>

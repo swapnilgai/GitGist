@@ -23,15 +23,15 @@ public class DataManager {
 
 
     public Call<List<Gists>> makeLocalGistApiCall(String pageNumber) {
-        return  mApiService.getPublicGist(pageNumber);
+        return mApiService.getPublicGist(pageNumber);
     }
 
     public Call<ResponseBody> getFileFromServer(String fileUrl) {
-        return  mApiService.getFileFromServer(fileUrl);
+        return mApiService.getFileFromServer(fileUrl);
     }
 
     public Call<DetailResponse> getGistDetail(String gistId) {
-        return  mApiService.getGistDetail(gistId);
+        return mApiService.getGistDetail(gistId);
     }
 
 }

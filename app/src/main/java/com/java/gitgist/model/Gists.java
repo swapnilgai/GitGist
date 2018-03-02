@@ -2,241 +2,226 @@ package com.java.gitgist.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Gists implements Parcelable {
-	@SerializedName("commits_url")
-	private String commitsUrl;
+    public static final Parcelable.Creator<Gists> CREATOR = new Parcelable.Creator<Gists>() {
+        @Override
+        public Gists createFromParcel(Parcel source) {
+            return new Gists(source);
+        }
 
-	@SerializedName("comments")
-	private int comments;
+        @Override
+        public Gists[] newArray(int size) {
+            return new Gists[size];
+        }
+    };
+    @SerializedName("commits_url")
+    private String commitsUrl;
+    @SerializedName("comments")
+    private int comments;
+    @SerializedName("forks_url")
+    private String forksUrl;
+    @SerializedName("git_push_url")
+    private String gitPushUrl;
+    @SerializedName("created_at")
+    private String createdAt;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("truncated")
+    private boolean truncated;
+    @SerializedName("url")
+    private String url;
+    @SerializedName("public")
+    private boolean jsonMemberPublic;
+    @SerializedName("updated_at")
+    private String updatedAt;
+    @SerializedName("html_url")
+    private String htmlUrl;
+    @SerializedName("git_pull_url")
+    private String gitPullUrl;
+    @SerializedName("comments_url")
+    private String commentsUrl;
+    @SerializedName("files")
+    private Files files;
+    @SerializedName("id")
+    private String id;
+    @SerializedName("user")
+    private User user;
 
-	@SerializedName("forks_url")
-	private String forksUrl;
+    public Gists() {
+    }
 
-	@SerializedName("git_push_url")
-	private String gitPushUrl;
+    protected Gists(Parcel in) {
+        this.commitsUrl = in.readString();
+        this.comments = in.readInt();
+        this.forksUrl = in.readString();
+        this.gitPushUrl = in.readString();
+        this.createdAt = in.readString();
+        this.description = in.readString();
+        this.truncated = in.readByte() != 0;
+        this.url = in.readString();
+        this.jsonMemberPublic = in.readByte() != 0;
+        this.updatedAt = in.readString();
+        this.htmlUrl = in.readString();
+        this.gitPullUrl = in.readString();
+        this.commentsUrl = in.readString();
+        this.files = in.readParcelable(Files.class.getClassLoader());
+        this.id = in.readString();
+        this.user = in.readParcelable(Object.class.getClassLoader());
+    }
 
-	@SerializedName("created_at")
-	private String createdAt;
+    public String getCommitsUrl() {
+        return commitsUrl;
+    }
 
-	@SerializedName("description")
-	private String description;
+    public void setCommitsUrl(String commitsUrl) {
+        this.commitsUrl = commitsUrl;
+    }
 
-	@SerializedName("truncated")
-	private boolean truncated;
+    public int getComments() {
+        return comments;
+    }
 
-	@SerializedName("url")
-	private String url;
+    public void setComments(int comments) {
+        this.comments = comments;
+    }
 
-	@SerializedName("public")
-	private boolean jsonMemberPublic;
+    public String getForksUrl() {
+        return forksUrl;
+    }
 
-	@SerializedName("updated_at")
-	private String updatedAt;
+    public void setForksUrl(String forksUrl) {
+        this.forksUrl = forksUrl;
+    }
 
-	@SerializedName("html_url")
-	private String htmlUrl;
+    public String getGitPushUrl() {
+        return gitPushUrl;
+    }
 
-	@SerializedName("git_pull_url")
-	private String gitPullUrl;
+    public void setGitPushUrl(String gitPushUrl) {
+        this.gitPushUrl = gitPushUrl;
+    }
 
-	@SerializedName("comments_url")
-	private String commentsUrl;
+    public String getCreatedAt() {
+        return createdAt;
+    }
 
-	@SerializedName("files")
-	private Files files;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	@SerializedName("id")
-	private String id;
+    public String getDescription() {
+        return description;
+    }
 
-	@SerializedName("user")
-	private User user;
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setCommitsUrl(String commitsUrl){
-		this.commitsUrl = commitsUrl;
-	}
+    public boolean isTruncated() {
+        return truncated;
+    }
 
-	public String getCommitsUrl(){
-		return commitsUrl;
-	}
+    public void setTruncated(boolean truncated) {
+        this.truncated = truncated;
+    }
 
-	public void setComments(int comments){
-		this.comments = comments;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public int getComments(){
-		return comments;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public void setForksUrl(String forksUrl){
-		this.forksUrl = forksUrl;
-	}
+    public boolean isJsonMemberPublic() {
+        return jsonMemberPublic;
+    }
 
-	public String getForksUrl(){
-		return forksUrl;
-	}
+    public void setJsonMemberPublic(boolean jsonMemberPublic) {
+        this.jsonMemberPublic = jsonMemberPublic;
+    }
 
-	public void setGitPushUrl(String gitPushUrl){
-		this.gitPushUrl = gitPushUrl;
-	}
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
 
-	public String getGitPushUrl(){
-		return gitPushUrl;
-	}
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
-	public void setCreatedAt(String createdAt){
-		this.createdAt = createdAt;
-	}
+    public String getHtmlUrl() {
+        return htmlUrl;
+    }
 
-	public String getCreatedAt(){
-		return createdAt;
-	}
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
 
-	public void setDescription(String description){
-		this.description = description;
-	}
+    public String getGitPullUrl() {
+        return gitPullUrl;
+    }
 
-	public String getDescription(){
-		return description;
-	}
+    public void setGitPullUrl(String gitPullUrl) {
+        this.gitPullUrl = gitPullUrl;
+    }
 
-	public void setTruncated(boolean truncated){
-		this.truncated = truncated;
-	}
+    public String getCommentsUrl() {
+        return commentsUrl;
+    }
 
-	public boolean isTruncated(){
-		return truncated;
-	}
+    public void setCommentsUrl(String commentsUrl) {
+        this.commentsUrl = commentsUrl;
+    }
 
-	public void setUrl(String url){
-		this.url = url;
-	}
+    public Files getFiles() {
+        return files;
+    }
 
-	public String getUrl(){
-		return url;
-	}
+    public void setFiles(Files files) {
+        this.files = files;
+    }
 
-	public void setJsonMemberPublic(boolean jsonMemberPublic){
-		this.jsonMemberPublic = jsonMemberPublic;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public boolean isJsonMemberPublic(){
-		return jsonMemberPublic;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setUpdatedAt(String updatedAt){
-		this.updatedAt = updatedAt;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public String getUpdatedAt(){
-		return updatedAt;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public void setHtmlUrl(String htmlUrl){
-		this.htmlUrl = htmlUrl;
-	}
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-	public String getHtmlUrl(){
-		return htmlUrl;
-	}
-
-	public void setGitPullUrl(String gitPullUrl){
-		this.gitPullUrl = gitPullUrl;
-	}
-
-	public String getGitPullUrl(){
-		return gitPullUrl;
-	}
-
-	public void setCommentsUrl(String commentsUrl){
-		this.commentsUrl = commentsUrl;
-	}
-
-	public String getCommentsUrl(){
-		return commentsUrl;
-	}
-
-	public void setFiles(Files files){
-		this.files = files;
-	}
-
-	public Files getFiles(){
-		return files;
-	}
-
-	public void setId(String id){
-		this.id = id;
-	}
-
-	public String getId(){
-		return id;
-	}
-
-	public void setUser(User user){
-		this.user = user;
-	}
-
-	public User getUser(){
-		return user;
-	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(this.commitsUrl);
-		dest.writeInt(this.comments);
-		dest.writeString(this.forksUrl);
-		dest.writeString(this.gitPushUrl);
-		dest.writeString(this.createdAt);
-		dest.writeString(this.description);
-		dest.writeByte(this.truncated ? (byte) 1 : (byte) 0);
-		dest.writeString(this.url);
-		dest.writeByte(this.jsonMemberPublic ? (byte) 1 : (byte) 0);
-		dest.writeString(this.updatedAt);
-		dest.writeString(this.htmlUrl);
-		dest.writeString(this.gitPullUrl);
-		dest.writeString(this.commentsUrl);
-		dest.writeParcelable(this.files, flags);
-		dest.writeString(this.id);
-		dest.writeParcelable(this.user, flags);
-	}
-
-	public Gists() {
-	}
-
-	protected Gists(Parcel in) {
-		this.commitsUrl = in.readString();
-		this.comments = in.readInt();
-		this.forksUrl = in.readString();
-		this.gitPushUrl = in.readString();
-		this.createdAt = in.readString();
-		this.description = in.readString();
-		this.truncated = in.readByte() != 0;
-		this.url = in.readString();
-		this.jsonMemberPublic = in.readByte() != 0;
-		this.updatedAt = in.readString();
-		this.htmlUrl = in.readString();
-		this.gitPullUrl = in.readString();
-		this.commentsUrl = in.readString();
-		this.files = in.readParcelable(Files.class.getClassLoader());
-		this.id = in.readString();
-		this.user = in.readParcelable(Object.class.getClassLoader());
-	}
-
-	public static final Parcelable.Creator<Gists> CREATOR = new Parcelable.Creator<Gists>() {
-		@Override
-		public Gists createFromParcel(Parcel source) {
-			return new Gists(source);
-		}
-
-		@Override
-		public Gists[] newArray(int size) {
-			return new Gists[size];
-		}
-	};
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.commitsUrl);
+        dest.writeInt(this.comments);
+        dest.writeString(this.forksUrl);
+        dest.writeString(this.gitPushUrl);
+        dest.writeString(this.createdAt);
+        dest.writeString(this.description);
+        dest.writeByte(this.truncated ? (byte) 1 : (byte) 0);
+        dest.writeString(this.url);
+        dest.writeByte(this.jsonMemberPublic ? (byte) 1 : (byte) 0);
+        dest.writeString(this.updatedAt);
+        dest.writeString(this.htmlUrl);
+        dest.writeString(this.gitPullUrl);
+        dest.writeString(this.commentsUrl);
+        dest.writeParcelable(this.files, flags);
+        dest.writeString(this.id);
+        dest.writeParcelable(this.user, flags);
+    }
 }
